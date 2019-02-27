@@ -166,33 +166,10 @@ export default class extends React.PureComponent {
                   <Logo size={80} />
                 </a>
               </Link>
-              <Link href="/blog/next-8">
-                <a
-                  className="version no-tap-highlight no-drag"
-                  style={{
-                    opacity: Math.max(1 - (scroll * 3) / LOGO_TOP, 0),
-                    visibility: scroll * 3 > LOGO_TOP ? 'hidden' : 'visible',
-                  }}
-                >
-                  <Popover
-                    content={(
-                      <span className="f5 fw4 tip">
-                        What’s new in
-                        {' '}
-                        <strong className="fw7">8</strong>
-?
-                      </span>
-)}
-                    top={65}
-                  >
-                    8
-                  </Popover>
-                </a>
-              </Link>
             </div>
             <div className="campaign no-drag no-tap-highlight">
               <h1 className={classNames('title-1', 'fw6')}>
-                The React Framework for
+                Магазин ... товаров
               </h1>
               <h2 className={classNames('title-2', 'fw7')}>
                 <Campaign />
@@ -201,7 +178,7 @@ export default class extends React.PureComponent {
             <div>
               <div className="main-button">
                 <Button href="#showcases" invert>
-                  See Showcase
+                  Посмотреть Каталог
                 </Button>
               </div>
               <div className="links">

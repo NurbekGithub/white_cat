@@ -4,16 +4,14 @@ import WordSlider from '../word-slider';
 export default () => (
   <div className="slider-container">
     <WordSlider duration={1800}>
-      <span>Production</span>
-      <span>Server-Rendered Apps</span>
-      <span>Static Websites</span>
-      <span>the Enterprise</span>
-      <span>the Desktop</span>
-      <span>the Mobile Web</span>
-      <span>Lightweight Apps</span>
-      <span>SEO-Friendly Sites</span>
-      <span>PWAs</span>
-      <span>Electron</span>
+      <span>Cat1</span>
+      <span>Cat2</span>
+      <span>Cat3</span>
+      <span>Cat4</span>
+      <span>Cat5</span>
+      <span>Cat6</span>
+      <span>Cat7</span>
+      <span>Cat8</span>
     </WordSlider>
     <style jsx>{`
       .slider-container {

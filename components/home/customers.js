@@ -3,8 +3,6 @@ import Button from '../button'
 import SectionHeader from '../section-header'
 import ShowcasePreview from './showcase-preview'
 
-import Preview from '../blog/preview'
-
 export default () => <Container gray wide center padding role='region' aria-labelledby='customers'>
   <SectionHeader anchor="showcases" id="customers" title='Who’s Using Next.js' description='We’re honored some of the most talented creatives out there build with Next.js'/>
   {/*

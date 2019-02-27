@@ -22,7 +22,7 @@ export default withRouter(({ isMobile, router, hideLogo = false }) => {
           return (
             <Container center>
               <h1 className="visually-hidden" aria-hidden="true">
-                Next.js
+                White-Cat
               </h1>
               <nav className="expand f5">
                 <style jsx>
@@ -46,8 +46,6 @@ export default withRouter(({ isMobile, router, hideLogo = false }) => {
                       display: flex;
                       margin: 0 -5px;
                       text-align: left;
-                      // justify-content: flex-end;
-                      // justify-content: space-between;
                       justify-content: space-around;
                     }
                     nav .links a {

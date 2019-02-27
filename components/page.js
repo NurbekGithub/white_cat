@@ -169,7 +169,7 @@ export default withMediaQuery(({ title, description, children }) => (
         }
         .row {
           display: flex;
-          align-items: center;
+          align-items: stretch;
           margin: 0 -1.5rem;
         }
         .column {
