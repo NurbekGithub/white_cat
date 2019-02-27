@@ -15,11 +15,12 @@ import Toggle from "../../icons/toggle";
 import ArrowPrevious from "../../icons/arrow-previous";
 import ArrowNext from "../../icons/arrow-next";
 
+
 // all credits to awesome girl muikimiu
 const Modal = props => {
-  // Create container DOM element and append to DOM.
-  const overlayContainer = document.createElement("div");
-  document.body.appendChild(overlayContainer);
+  const { children, toggleModal, duration, accentColor } = props;
+  // find container DOM element to append modal.
+  const modalRoot = document.getElementById('modalRoot');
 
   // state
   const [animateLeft, setAnimateLeft] = useState(false);
@@ -31,18 +32,17 @@ const Modal = props => {
 
   // lifecycle hooks
   useEffect(() => {
-    const { children } = props;
-
     setTotal(React.Children.count(children));
     setSlides(React.Children.toArray(children));
-    document.addEventListener("keyup", handleKeyPress, false);
+  }, []);
 
+  useEffect(() => {
+    document.addEventListener("keyup", handleKeyPress, false);
     return () => {
       // cleanup
       document.removeEventListener("keyup", handleKeyPress, false);
-      document.body.removeChild(overlayContainer);
     };
-  }, []);
+  }, [current]);
 
   const handleKeyPress = ({ keyCode }) => {
     const ARROW_RIGHT = 39;
@@ -53,10 +53,10 @@ const Modal = props => {
         animateToLeft();
         break;
       case ARROW_RIGHT:
-        animateToRight();
+        animateToRight(current);
         break;
       case ESC:
-        props.toggleModal();
+        toggleModal();
         break;
       default:
     }
@@ -70,28 +70,20 @@ const Modal = props => {
     setTimeout(() => {
       setAnimateLeft(false);
       setAnimateRight(false);
-    }, props.duration);
+    }, 2000 + duration);
   };
 
   const animateToLeft = () => {
     handleAnimation("left");
-    const current = current === 0 ? total - 1 : current - 1;
-    setCurrent(current);
+    const newCurrent = current === 0 ? total - 1 : current - 1;
+    setCurrent(newCurrent);
   };
 
-  const animateToRight = () => {
+  function animateToRight(current) {
     handleAnimation("right");
-    const current = current + 1 === total ? 0 : current + 1;
-    setCurrent(current);
+    const newCurrent = current + 1 === total ? 0 : current + 1;
+    setCurrent(newCurrent);
   };
-  const {
-    children,
-    toggleModal,
-    illustration,
-    duration,
-    backgroundColor,
-    accentColor
-  } = props;
 
   return ReactDOM.createPortal(
     <OverlayWrapper>
@@ -103,7 +95,7 @@ const Modal = props => {
         <ArrowNext onClick={animateToRight} />
       </ModalNav>
       <ModalCardWrapper>
-        <ModalCard>
+        <ModalCard accentColor={accentColor}>
           <BorderLeft
             animateLeft={animateLeft}
             animateRight={animateRight}
@@ -111,7 +103,7 @@ const Modal = props => {
             duration={duration}
           />
           <ModalContent>{slides[current]}</ModalContent>
-
+          {current + ', ' + total}
           <BorderRight
             animateLeft={animateLeft}
             animateRight={animateRight}
@@ -121,7 +113,7 @@ const Modal = props => {
         </ModalCard>
       </ModalCardWrapper>
     </OverlayWrapper>,
-    overlayContainer
+    modalRoot
   );
 };
 

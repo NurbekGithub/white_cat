@@ -1,8 +1,9 @@
 const borderWith = 120;
 const maxWidth = 680;
 
-export const OverlayWrapper = () => (
+export const OverlayWrapper = ({children}) => (
   <div>
+    {children}
     <style jsx>{`
       position: fixed;
       left: 0;
@@ -16,8 +17,9 @@ export const OverlayWrapper = () => (
   </div>
 );
 
-export const ModalClose = () => (
+export const ModalClose = ({children}) => (
   <div>
+    {children}
     <style jsx>{`
       svg {
         position: fixed;
@@ -38,8 +40,9 @@ export const ModalClose = () => (
   </div>
 );
 
-export const ModalNav = () => (
+export const ModalNav = ({children}) => (
   <div>
+    {children}
     <style jsx>{`
       @media only screen and (max-width: 680px) {
         position: absolute;
@@ -77,8 +80,9 @@ export const ModalNav = () => (
   </div>
 );
 
-export const ModalCardWrapper = () => (
+export const ModalCardWrapper = ({children}) => (
   <div>
+    {children}
     <style jsx>{`
       position: relative;
       overflow-x: hidden;
@@ -90,8 +94,9 @@ export const ModalCardWrapper = () => (
   </div>
 );
 
-export const ModalCard = ({ accentColor }) => (
+export const ModalCard = ({ children, accentColor }) => (
   <div>
+    {children}
     <style jsx>{`
       width: 90%;
       overflow: hidden;
@@ -110,8 +115,9 @@ export const ModalCard = ({ accentColor }) => (
   </div>
 );
 
-export const ModalContent = ({ backgroundColor }) => (
+export const ModalContent = ({ children, backgroundColor }) => (
   <div>
+    {children}
     <style jsx>{`
       position: relative;
       height: 100%;
