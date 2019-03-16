@@ -1,10 +1,11 @@
 import Link from 'next/link';
 import classNames from 'classnames';
+import Router from 'next/router'
 
 import withPure from './hoc/pure';
 
 export default withPure(
-  ({ children, invert, href, as, className, prefetch, ...props }) => {
+  ({ children, invert, href, as, className, prefetch, imperatively, ...props }) => {
     const a = (
       <a
         className={classNames(className, 'fw4 no-drag', { invert })}
@@ -52,6 +53,11 @@ export default withPure(
     );
 
     if (href) {
+      if (imperatively) {
+        return <span onClick={() => Router.push(href)}>
+          {a}
+        </span>
+      }
       return (
         <Link href={href} as={as} prefetch={prefetch}>
           {a}

@@ -1,12 +1,14 @@
 import React, { PureComponent } from 'react';
 
-const {
-  Provider: MediaQueryProvider,
-  Consumer: MediaQueryConsumer
-} = React.createContext({
+const context = React.createContext({
   isMobile: false,
   isTablet: false
 });
+
+const {
+  Provider: MediaQueryProvider,
+  Consumer: MediaQueryConsumer
+} = context;
 
 const withMediaQuery = Comp =>
   class extends PureComponent {
@@ -46,4 +48,4 @@ const withMediaQuery = Comp =>
     }
   };
 
-export { MediaQueryProvider, MediaQueryConsumer, withMediaQuery };
+export { MediaQueryProvider, MediaQueryConsumer, withMediaQuery, context };

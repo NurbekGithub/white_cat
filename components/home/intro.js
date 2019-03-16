@@ -14,7 +14,7 @@ import Campaign from './campaign';
 
 import { links } from '../../site-manifest';
 
-const LOGO_TOP = 170;
+export const LOGO_TOP = 80;
 
 function easing(t) {
   return 1 + --t * t * t * t * t;
@@ -48,15 +48,20 @@ export default class extends React.PureComponent {
         wide
         center
         overflow
-        dotBackground
-        minHeight={564}
+        minHeight={530}
         mobileStyle="min-height: 460px;"
+        dotBackground
         style={{
           display: 'flex',
           alignItems: 'flex-end',
+          // background: 'red',
         }}
       >
-        <Container>
+        <Container wide style={{
+          background: 'url(/static/images/background-wc-1.jpg)',
+          backgroundSize: 'cover',
+          height: '400px'
+        }}>
           <div className="intro-container">
             <style jsx>
               {`
@@ -161,11 +166,16 @@ export default class extends React.PureComponent {
                 transformOrigin: 'top',
               }}
             >
-              <Link href={scroll >= LOGO_TOP ? '/' : undefined}>
-                <a aria-label="Next.js">
-                  <Logo size={80} />
-                </a>
-              </Link>
+              {scroll >= LOGO_TOP ? (
+                <Link href='/'>
+                  <a aria-label="Next.js">
+                    <Logo size={80} />
+                  </a>
+                </Link>
+              ) : (
+                <Logo size={80} />
+              )}
+              
             </div>
             <div className="campaign no-drag no-tap-highlight">
               <h1 className={classNames('title-1', 'fw6')}>
@@ -177,22 +187,9 @@ export default class extends React.PureComponent {
             </div>
             <div>
               <div className="main-button">
-                <Button href="#showcases" invert>
+                <Button href="/catalog?page=0" invert>
                   Посмотреть Каталог
                 </Button>
-              </div>
-              <div className="links">
-                <Link href={links.license}>
-                  <a rel="noreferrer" target="_blank">
-                    <span className="mute">License: MIT</span>
-                  </a>
-                </Link>
-                <div>
-                  <Button href="/docs">View Docs</Button>
-                </div>
-                <div>
-                  <Button href="https://github.com/zeit/next.js">GitHub</Button>
-                </div>
               </div>
             </div>
           </div>

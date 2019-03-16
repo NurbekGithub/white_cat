@@ -21,7 +21,8 @@ const Modal = props => {
   const { children, toggleModal, duration, accentColor } = props;
   // find container DOM element to append modal.
   const modalRoot = document.getElementById('modalRoot');
-
+  const innerRef = React.useRef();
+  
   // state
   const [animateLeft, setAnimateLeft] = useState(false);
   const [animateRight, setAnimateRight] = useState(false);
@@ -34,15 +35,17 @@ const Modal = props => {
   useEffect(() => {
     setTotal(React.Children.count(children));
     setSlides(React.Children.toArray(children));
-  }, []);
-
-  useEffect(() => {
+    
     document.addEventListener("keyup", handleKeyPress, false);
     return () => {
       // cleanup
       document.removeEventListener("keyup", handleKeyPress, false);
     };
-  }, [current]);
+  }, []);
+  
+  useEffect(() => {
+    innerRef.current = total;
+  }, [total])
 
   const handleKeyPress = ({ keyCode }) => {
     const ARROW_RIGHT = 39;
@@ -75,14 +78,12 @@ const Modal = props => {
 
   const animateToLeft = () => {
     handleAnimation("left");
-    const newCurrent = current === 0 ? total - 1 : current - 1;
-    setCurrent(newCurrent);
+    setCurrent(current => current === 0 ? innerRef.current - 1 : current - 1);
   };
 
-  function animateToRight(current) {
+  function animateToRight() {
     handleAnimation("right");
-    const newCurrent = current + 1 === total ? 0 : current + 1;
-    setCurrent(newCurrent);
+    setCurrent(current => current + 1 === innerRef.current ? 0 : current + 1);
   };
 
   return ReactDOM.createPortal(

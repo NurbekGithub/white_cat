@@ -7,7 +7,7 @@ import NextLogo from './logo';
 import Container from './container';
 import Popover from './popover';
 
-import GitHubLogo from './icons/github';
+import InstagramLogo from './icons/instagramm';
 import SpectrumLogo from './icons/spectrum';
 
 import { links } from '../site-manifest';
@@ -113,7 +113,7 @@ export default withRouter(({ isMobile, router, hideLogo = false }) => {
                         rel="noreferrer"
                         target="_blank"
                       >
-                        <GitHubLogo />
+                        <InstagramLogo />
                       </a>
                     </Link>
                     <Link href={links.spectrum}>
@@ -130,34 +130,24 @@ export default withRouter(({ isMobile, router, hideLogo = false }) => {
                   </div>
                 </div>
                 <div className="links mute dropdown">
-                  <Link href="/docs">
+                  <Link href="/categories">
                     <a
                       className={classNames({
-                        selected: route.startsWith('/docs')
+                        selected: route.startsWith('/categories')
                       })}
-                      title="Documentation"
+                      title="Категории"
                     >
-                      Docs
+                      Категории
                     </a>
                   </Link>
-                  <Link href="/learn">
+                  <Link href="/manufacturies">
                     <a
                       className={classNames({
-                        selected: route.startsWith('/learn')
+                        selected: route.startsWith('/manufacturies')
                       })}
-                      title="Learn"
+                      title="Производители"
                     >
-                      Learn
-                    </a>
-                  </Link>
-                  <Link href="/showcase" prefetch>
-                    <a
-                      className={classNames({
-                        selected: route.startsWith('/showcase')
-                      })}
-                      title="Showcase"
-                    >
-                      Showcase
+                      Производители
                     </a>
                   </Link>
                   <Link href="/blog" prefetch>
@@ -165,9 +155,9 @@ export default withRouter(({ isMobile, router, hideLogo = false }) => {
                       className={classNames({
                         selected: route.startsWith('/blog')
                       })}
-                      title="Blog"
+                      title="Блог"
                     >
-                      Blog
+                      Блог
                     </a>
                   </Link>
                   {
@@ -270,34 +260,24 @@ export default withRouter(({ isMobile, router, hideLogo = false }) => {
                 `}
               </style>
               <div className="links">
-                <Link href="/docs">
+                <Link href="/categories">
                   <a
                     className={classNames('mute', {
-                      selected: route.startsWith('/docs')
+                      selected: route.startsWith('/categories')
                     })}
-                    title="Documentation"
+                    title="Категории"
                   >
-                    Docs
+                    Категории
                   </a>
                 </Link>
-                <Link href="/learn">
+                <Link href="/manufacturies">
                   <a
                     className={classNames('mute', {
-                      selected: route.startsWith('/learn')
+                      selected: route.startsWith('/manufacturies')
                     })}
-                    title="Learn"
+                    title="Производители"
                   >
-                    Learn
-                  </a>
-                </Link>
-                <Link href="/showcase" prefetch>
-                  <a
-                    className={classNames('mute', {
-                      selected: route.startsWith('/showcase')
-                    })}
-                    title="Showcase"
-                  >
-                    Showcase
+                    Производители
                   </a>
                 </Link>
               </div>
@@ -317,20 +297,17 @@ export default withRouter(({ isMobile, router, hideLogo = false }) => {
                       selected: route.startsWith('/blog')
                     })}
                   >
-                    Blog
+                    Блог
                   </a>
                 </Link>
-                {
-                  // <Link href="/enterprise" prefetch><a className={classNames('mute', { selected: route.startsWith('/enterprise') })}>Enterprise</a></Link>
-                }
                 <div className="icons">
-                  <Link href="https://github.com/zeit/next.js">
+                  <Link href="https://www.instagram.com/whitecat_astana/?hl=ru">
                     <a
                       aria-label="Next.js on GitHub"
                       rel="noreferrer"
                       target="_blank"
                     >
-                      <GitHubLogo />
+                      <InstagramLogo />
                     </a>
                   </Link>
                   <Popover

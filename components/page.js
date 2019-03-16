@@ -2,12 +2,12 @@ import Head from 'next/head';
 
 import '../lib/polyfill';
 import { withMediaQuery } from './media-query';
-import RouterEvents from '../lib/router-events';
-import { trackPageview } from '../lib/analytics';
+// import RouterEvents from '../lib/router-events';
+// import { trackPageview } from '../lib/analytics';
 
-RouterEvents.on('routeChangeComplete', url => {
-  trackPageview(url);
-});
+// RouterEvents.on('routeChangeComplete', url => {
+//   trackPageview(url);
+// });
 
 export default withMediaQuery(({ title, description, children }) => (
   <div>

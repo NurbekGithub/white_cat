@@ -5,8 +5,6 @@ import withPure from './hoc/pure';
 
 import { links } from '../site-manifest';
 
-import ZEITLogo from './icons/zeit-white-full-logo';
-
 export default withPure(() => (
   <Container wide dark>
     <Container>
@@ -182,14 +180,6 @@ export default withPure(() => (
               </Link>
             </p>
           </div>
-        </div>
-        <div className="copyright f6">
-          <Link href="https://zeit.co">
-            <a rel="noreferrer" target="_blank" aria-label="ZEIT">
-              <ZEITLogo />
-            </a>
-          </Link>
-          <div> Copyright © 2019 ZEIT, Inc. All rights reserved.</div>
         </div>
       </footer>
     </Container>

@@ -61,7 +61,6 @@ export default class NextSite extends Document {
               `,
             }}
           /> */}
-          <div id='modalRoot'></div>
         </body>
       </html>
     );
